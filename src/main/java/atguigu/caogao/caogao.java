@@ -8,8 +8,8 @@ import java.util.Date;
 
 public class caogao {
     public static void main(String[] args) {
-        int a = 321%10;
-        int b = (-321)%10;
+        int a = 331%10;
+        int b = (-331)%10;
 
     }
 }
