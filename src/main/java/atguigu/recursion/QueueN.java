@@ -1,8 +1,11 @@
 package atguigu.recursion;
 
-/*
- * 任意两个皇后都不能处于同一行、同一列或同一斜线上，问有多少种摆法。
- * */
+/**
+ * @author 小郭同学
+ * @Description TODO 八皇后回溯算法：任意两个皇后都不能处于同一行、同一列或同一斜线上，问有多少种摆法。
+ * @date 2022/4/28 19:49
+ * @project DataStructures-Demo
+ */
 public class QueueN {
     //先定义一个max表示共用多少个皇后
     static int max = 8;
@@ -16,11 +19,16 @@ public class QueueN {
         queue8.check(0);
         System.out.printf("一共有%d解法", count);
 
-
     }
 
-    //编写一个方法，放置第n+1个皇后
-    //特别注意：check是每一次递归时，进入到check中都有一套for循环，因此会有回溯
+    /**
+     * @Author 小郭同学
+     * @Description 编写一个方法，放置第n+1个皇后
+     *              特别注意：check是每一次递归时，进入到check中都有一套for循环，因此会有回溯
+     * @Date 2022/4/28 19:50
+     * @param n
+     * @return void
+     */
     private void check(int n) {
         if (n == max) {//n == 8是已经在放第九个皇后了，其实前8个皇后依然放好了
             print();
@@ -41,10 +49,12 @@ public class QueueN {
         }
     }
 
-
-    //查看当我们放置第n个皇后时，就去检测该皇后是否和前面已经摆放的皇后冲突
-    /*
-            n表示放第n+1个皇后
+    /**
+     * @Author 小郭同学
+     * @Description 查看当我们放置第n个皇后时，就去检测该皇后是否和前面已经摆放的皇后冲突
+     * @Date 2022/4/28 19:51
+     * @param n 表示放第n+1个皇后
+     * @return boolean 冲突与否
      */
     private boolean judge(int n) {
         for (int i = 0; i < n; i++) {
@@ -60,7 +70,12 @@ public class QueueN {
         return true;//要全部不冲突才能接着摆下一个位置，所以true必须放在循环外部
     }
 
-    //写一个方法，可以将皇后摆放的位置输出
+    /**
+     * @Author 小郭同学
+     * @Description 将皇后摆放的位置输出
+     * @Date 2022/4/28 19:54
+     * @return void
+     */
     private void print() {
         count++;
         for (int i = 0; i < array.length; i++) {
@@ -69,3 +84,4 @@ public class QueueN {
         System.out.println();
     }
 }
+
