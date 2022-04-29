@@ -12,7 +12,7 @@ import java.util.List;
 public class BinarySearch {
 
     public static void main(String[] args) {
-        int arr[] = {1, 1, 1, 8, 10, 89, 89, 89, 1000, 1234, 1234, 1234};
+        int[] arr = {1, 1, 1, 8, 10, 89, 89, 89, 1000, 1234, 1234, 1234};
 
         List<Integer> IndexList = binarySearch(arr, 0, arr.length - 1, 1);
         System.out.println("IndexList=" + IndexList);
