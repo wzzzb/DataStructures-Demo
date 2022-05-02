@@ -37,6 +37,7 @@ public class SelectSort {
 
     //选择排序
 //每次内层循环就是找到最小值的过程（即每次确定一个最小值）然后将最小值放在当次最前面，因此当做了arr.length-1次内部循环就可以将数组排列整齐。
+//下次内部循环应往后推移一个位置开始，到最后结束
     public static void selectSort(int[] arr){
         //在推导的过程中，我们发现了规律，因此可以使用一个循环来解决
         //选择排序的时间复杂度O(n^2)
@@ -52,6 +53,7 @@ public class SelectSort {
 
             //将最小值放在arr[0]的位置，即交换
             if(minIndex != i) {
+                //需要一个临时变量来记录最小值所在位置索引
                 arr[minIndex] = arr[i];
                 arr[i] = min;
             }
