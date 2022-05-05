@@ -56,6 +56,11 @@ public class SingleLinkedListDemo {
         //反转单链表
         singleLinkedList.reverseList(singleLinkedList.getHead());
         singleLinkedList.list();*/
+        //删除节点
+        System.out.println("------------------------");
+        singleLinkedList.delete(12);
+        //显示一把
+        singleLinkedList.list();
     }
 }
 
@@ -277,22 +282,18 @@ class SingleLinkedList {
      * */
     public void delete(int no) {
         HeroNode temp = head;
-        boolean flag = false;//表示是否找到该节点
-        while (true) {
-            if (temp.next == null) {
-                break;//链表已经遍历完了
-            }
+
+        while (temp.next != null) {
+
             if (temp.next.no == no) {
-                flag = true;
-                break;
+                temp.next = temp.next.next;
+                return;
             }
             temp = temp.next;
         }
-        if (flag == true) {
-            temp.next = temp.next.next;
-        } else {
-            System.out.println("没有编号为" + no + "的节点！");
-        }
+        //链表遍历结束
+        System.out.println("没有编号为" + no + "的节点！");
+
     }
 
     //显示链表【遍历】
