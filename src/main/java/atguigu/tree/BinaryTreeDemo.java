@@ -2,7 +2,10 @@ package atguigu.tree;
 
 /**
  * @author 小郭同学
- * @Description TODO 二叉树的前 中 后序遍历；定义二叉树 确定了一个根节点就确定了一颗二叉树
+ * @Description TODO 二叉树的前 中 后序遍历；定义二叉树 确定了一个根节点就确定了一颗二叉树；
+ * TODO 前序遍历：每一个子树都是先输出自己，再输出左子树，最后输出右子树
+ * TODO 中序遍历：每一个子树都是先输出左子树，再输出自己，最后输出右子树
+ * TODO 后序遍历：每一个子树都是先输出左子树，再输出右子树，最后输出自己
  * @date 2022/5/6 15:38
  * @project DataStructures-Demo
  */
@@ -37,9 +40,9 @@ public class BinaryTreeDemo {
         System.out.println("测试后序遍历");
         binaryTree.houOrder();   //25431
 
-        binaryTree.qianOrderSearch(5 );
-        binaryTree.zhongOrderSearch( 5);
-        binaryTree.houOrderSearch( 5);
+        binaryTree.qianOrderSearch(5);
+        binaryTree.zhongOrderSearch(5);
+        binaryTree.houOrderSearch(5);
 
     }
 
@@ -76,8 +79,8 @@ class BinaryTree {
         } else {
             System.out.println("当前二叉树为空！");
         }
-
         return null;
+
     }
 
     public void zhongOrder() {
@@ -155,6 +158,8 @@ class HeroNode {
     }
 
     public HeroNode preOrderSearch(int id) {
+        System.out.println("前序调用了。。。");
+        //这里才是判断是与否的语句，其他位置还是查找的语句，所以只需记录这里即可知道比较了几次，
         if (this.id == id) {
             return this;
         }
@@ -200,6 +205,8 @@ class HeroNode {
                 return rsHeroNode;
             }
         }
+        System.out.println("中序调用了。。。");
+        //这里才是判断是与否的语句，其他位置还是查找的语句，所以只需记录这里即可知道比较了几次，
         if (this.id == id) {
             return this;
         }
@@ -243,7 +250,8 @@ class HeroNode {
                 return rsHeroNode;
             }
         }
-
+        System.out.println("后序调用了。。。");
+        //这里才是判断是与否的语句，其他位置还是查找的语句，所以只需记录这里即可知道比较了几次，
         if (this.id == id) {
             return this;
         }
