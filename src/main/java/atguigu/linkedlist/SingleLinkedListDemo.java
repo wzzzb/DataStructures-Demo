@@ -125,10 +125,10 @@ class SingleLinkedList {
 
     //将单链表进行反转
     public static void reverseList(HeroNode head) {
-        //如果当前链表为空，或者只有一个节点，无需反转，直接返回
-        if (head.next == null || head.next.next == null) {
+        //如果当前链表为空，或者只有一个节点，无需反转，直接返回；这步判断多余了
+        /*if (head.next == null || head.next.next == null) {
             return;
-        }
+        }*/
         //定义一个辅助指针（变量），帮助我们遍历原来的链表
         HeroNode cur = head.next;
         HeroNode next = null; //用来指向当前节点[cur]的下一个节点
