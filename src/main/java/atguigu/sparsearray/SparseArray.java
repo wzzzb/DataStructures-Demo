@@ -7,9 +7,12 @@ import java.io.*;
  */
 public class SparseArray {
     public static void main(String[] args) throws IOException {
+        int chessArr1[][] = new int[11][12];
+        System.out.println(chessArr1.length);
+        System.out.println(chessArr1[0].length);
         //创建一个原始的二维数组11*11
         //0表示没有棋子，1表示黑子，2表示蓝子
-        int chessArr1[][] = new int[11][11];
+
         chessArr1[1][2] = 1;
         chessArr1[2][3] = 2;
         chessArr1[4][5] = 2;
