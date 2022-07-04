@@ -71,7 +71,7 @@ class ThreadBinaryTree {
         this.root = root;
     }
 
-    //重载中序线索化方法-----------------------------------------
+    //重载中序线索化方法-------------------------------------------------------------------
     public void threadedNodes() {
         this.threadedNodes(root);
     }
