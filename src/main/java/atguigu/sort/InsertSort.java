@@ -4,7 +4,7 @@ import java.text.SimpleDateFormat;
 
 /**
  * @author 小郭同学
- * @Description TODO 插入排序
+ * @Description TODO 插入排序  ，这种方法不如左神
  * @date 2022/4/25 16:19
  * @project DataStructures-Demo
  */

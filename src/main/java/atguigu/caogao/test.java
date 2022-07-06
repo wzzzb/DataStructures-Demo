@@ -1,37 +1,20 @@
-package zuoShen.basic.class01;
+package atguigu.caogao;
 
 import java.util.Arrays;
 
-public class Code03_InsertionSort {
-
-    public static void insertionSort(int[] arr) {
-        if (arr == null || arr.length < 2) {
-            return;
-        }
-        //0~0 有序的
-        //0~1 想有序
-        for (int i = 1; i < arr.length; i++) { // 0~i 做到有序
-
-            for (int j = i - 1; j >= 0 && arr[j] > arr[j + 1]; j--) {
-                swap(arr, j, j + 1);
-            }
-        }
-    }
-
-    // i和j是同一个位置的话，会出错
-    public static void swap(int[] arr, int i, int j) {
-        arr[i] = arr[i] ^ arr[j];
-        arr[j] = arr[i] ^ arr[j];
-        arr[i] = arr[i] ^ arr[j];
-    }
-
-
-    // for test 系统提供的排序
+/**
+ * @author 小郭同学
+ * @Description TODO 左神对数器 自测用 测试自己的算法是否有误
+ * @date 2022/7/6 17:32
+ * @project DataStructures-Demo
+ */
+public class test {
+    // for rTest 系统提供的排序 TODO 用Java自带排序做对比判断自己的算法是否正确
     public static void comparator(int[] arr) {
         Arrays.sort(arr);
     }
 
-    // for test 随机数组生成器
+    // for Test 随机数组生成器
     public static int[] generateRandomArray(int maxSize, int maxValue) {
 
         // Math.random() -> [0,1) 所有小数等概率返回一个
@@ -45,7 +28,7 @@ public class Code03_InsertionSort {
         return arr;
     }
 
-    // for test 复制一个地址不同，值完全相同的数组
+    // for Test 复制一个地址不同，值完全相同的数组
     public static int[] copyArray(int[] arr) {
         if (arr == null) {
             return null;
@@ -57,7 +40,7 @@ public class Code03_InsertionSort {
         return res;
     }
 
-    // for test
+    // for Test 用来判断自己的算法与Java的算法结果是否相同
     public static boolean isEqual(int[] arr1, int[] arr2) {
         if ((arr1 == null && arr2 != null) || (arr1 != null && arr2 == null)) {
             return false;
@@ -76,7 +59,7 @@ public class Code03_InsertionSort {
         return true;
     }
 
-    // for test
+    // for Test 打印数组
     public static void printArray(int[] arr) {
         if (arr == null) {
             return;
@@ -87,16 +70,16 @@ public class Code03_InsertionSort {
         System.out.println();
     }
 
-    // for test
+    // for Test 主方法
     public static void main(String[] args) {
-        int testTime = 500000;
-        int maxSize = 100;
-        int maxValue = 100;
+        int testTime = 500000;      //测试次数
+        int maxSize = 100;          // 数组最大长度
+        int maxValue = 100;         // 最大值 生成数组的范围（-100,100）
         boolean succeed = true;
         for (int i = 0; i < testTime; i++) {
             int[] arr1 = generateRandomArray(maxSize, maxValue);
             int[] arr2 = copyArray(arr1);
-            insertionSort(arr1);
+            // 要测试的算法 insertionSort(arr1);
             comparator(arr2);
             if (!isEqual(arr1, arr2)) {
                 succeed = false;
@@ -107,8 +90,7 @@ public class Code03_InsertionSort {
 
         int[] arr = generateRandomArray(maxSize, maxValue);
         printArray(arr);
-        insertionSort(arr);
+        // 要测试的算法 insertionSort(arr);
         printArray(arr);
     }
-
 }
