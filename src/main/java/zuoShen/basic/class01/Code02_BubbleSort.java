@@ -8,6 +8,7 @@ public class Code02_BubbleSort {
         if (arr == null || arr.length < 2) {
             return;
         }
+//        外部循环一次，内层循环都将最大值交换到最后一位，故下次内部循环次数刚好与外部循环变量相同都减少了1，
         for (int e = arr.length - 1; e > 0; e--) {
             for (int i = 0; i < e; i++) {
                 if (arr[i] > arr[i + 1]) {

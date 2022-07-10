@@ -8,34 +8,37 @@ public class Code01_MergeSort {
         if (arr == null || arr.length < 2) {
             return;
         }
-        mergeSort(arr, 0, arr.length - 1);
+        process(arr, 0, arr.length - 1);
     }
 
-    public static void mergeSort(int[] arr, int l, int r) {
-        if (l == r) {
+    //排序与合并
+    public static void process(int[] arr, int l, int r) {
+        if (l == r) { // 只有一个数，肯定是有序的
             return;
         }
         int mid = l + ((r - l) >> 1);
-        mergeSort(arr, l, mid);
-        mergeSort(arr, mid + 1, r);
-        merge(arr, l, mid, r);
+        process(arr, l, mid); //使左侧有序
+        process(arr, mid + 1, r); //使右侧有序
+        merge(arr, l, mid, r); // 将排好序的左右合并起来
     }
 
+    //将排序后的进行有序合并
     public static void merge(int[] arr, int l, int m, int r) {
-        int[] help = new int[r - l + 1];
+        int[] help = new int[r - l + 1]; //创建合并需要的数组空间
         int i = 0;
         int p1 = l;
         int p2 = m + 1;
-        while (p1 <= m && p2 <= r) {
+        while (p1 <= m && p2 <= r) { //左右都没有拷贝完
             help[i++] = arr[p1] < arr[p2] ? arr[p1++] : arr[p2++];
         }
-        while (p1 <= m) {
+//        下面两个循环只会用到一个
+        while (p1 <= m) { //右侧拷贝完，但是左侧没拷贝完，把左侧剩下的全考过去
             help[i++] = arr[p1++];
         }
-        while (p2 <= r) {
+        while (p2 <= r) { //左侧拷贝完，但是右侧没拷贝完，把右侧剩下的全考过去
             help[i++] = arr[p2++];
         }
-        for (i = 0; i < help.length; i++) {
+        for (i = 0; i < help.length; i++) { //将辅助数组中排好序的拷贝回原数组
             arr[l + i] = help[i];
         }
     }

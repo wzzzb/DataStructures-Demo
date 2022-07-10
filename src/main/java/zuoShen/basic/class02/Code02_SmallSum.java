@@ -1,21 +1,27 @@
 package zuoShen.basic.class02;
-
+/**
+ * @Author 小郭同学
+ * @Description TODO 利用归并排序求小和问题，排好序的同时求出小和
+ * @Date 2022/7/10 14:41
+ * @return null
+ */
 public class Code02_SmallSum {
 
     public static int smallSum(int[] arr) {
         if (arr == null || arr.length < 2) {
             return 0;
         }
-        return mergeSort(arr, 0, arr.length - 1);
+        return process(arr, 0, arr.length - 1);
     }
 
-    public static int mergeSort(int[] arr, int l, int r) {
+    // arr[L...R]既要排好序，也要求小和
+    public static int process(int[] arr, int l, int r) {
         if (l == r) {
             return 0;
         }
         int mid = l + ((r - l) >> 1);
-        return mergeSort(arr, l, mid)
-                + mergeSort(arr, mid + 1, r)
+        return process(arr, l, mid)
+                + process(arr, mid + 1, r)
                 + merge(arr, l, mid, r);
     }
 
@@ -26,7 +32,7 @@ public class Code02_SmallSum {
         int p2 = m + 1;
         int res = 0;
         while (p1 <= m && p2 <= r) {
-            res += arr[p1] < arr[p2] ? (r - p2 + 1) * arr[p1] : 0;
+            res += arr[p1] < arr[p2] ? (r - p2 + 1) * arr[p1] : 0;//p1位置右侧比p1大的有r-p2+1个，不会漏算和重算是因为归并排序的特性（与每一个位置只比较一次大小）
             help[i++] = arr[p1] < arr[p2] ? arr[p1++] : arr[p2++];
         }
         while (p1 <= m) {
