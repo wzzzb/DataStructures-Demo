@@ -9,7 +9,7 @@ import java.util.Arrays;
  * @project DataStructures-Demo
  */
 public class test {
-    // for rTest 系统提供的排序 TODO 用Java自带排序做对比判断自己的算法是否正确
+    // for Test 系统提供的排序 TODO 用Java自带排序做对比判断自己的算法是否正确
     public static void comparator(int[] arr) {
         Arrays.sort(arr);
     }

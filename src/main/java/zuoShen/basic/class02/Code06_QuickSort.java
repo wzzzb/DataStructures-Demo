@@ -43,8 +43,8 @@ public class Code06_QuickSort {
                 l++;
             }
         }
-        swap(arr, more, r); // 将分界值放到>区域的最左侧
-        return new int[]{less, more + 1};
+        swap(arr, more++, r); // 最后将分界值放到>区域的最左侧,然后边界缩小一位
+        return new int[]{less, more}; //返回边界位置
     }
 
     public static void swap(int[] arr, int i, int j) {
