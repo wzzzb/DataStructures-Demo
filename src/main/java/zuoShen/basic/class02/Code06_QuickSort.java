@@ -30,7 +30,7 @@ public class Code06_QuickSort {
 
     //这是一个处理arr[l..r]的函数
     //默认以arr[r]做划分，arr[r]-> p  <p    ==p    >p
-    //该方法的返回值是 等于区域的（左边界，有边界），所以返回一个长度为2的数组res, res[0]和 res[1]左右边界位置
+    //该方法的返回值是 <区域的最右侧值的位置和>区域的最左侧的位置，所以返回一个长度为2的数组res, res[0]和 res[1]是左右边界位置
     public static int[] partition(int[] arr, int l, int r) {
         int less = l - 1; // 初始情况 <区域右边界位置
         int more = r;     // 初始情况 >区域左边界
