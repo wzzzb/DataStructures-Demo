@@ -20,7 +20,9 @@ public class Code03_Comparator {
     }
 
     public static class IdAscendingComparator implements Comparator<Student> {
-
+        //返回负数的时候，第一个参数排在前面
+        //返回正数的时候，第二个参数排在前面
+        //返回0的时候，谁在前面都可以
         @Override
         public int compare(Student o1, Student o2) {
             return o1.id - o2.id;

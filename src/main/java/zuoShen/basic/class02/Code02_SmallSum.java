@@ -32,7 +32,9 @@ public class Code02_SmallSum {
         int p2 = m + 1;
         int res = 0;
         while (p1 <= m && p2 <= r) {
-            res += arr[p1] < arr[p2] ? (r - p2 + 1) * arr[p1] : 0;//p1位置右侧比p1大的有r-p2+1个，不会漏算和重算是因为归并排序的特性（与每一个位置只比较一次大小）
+            //p1位置右侧比p1大的有r-p2+1个，不会漏算和重算是因为归并排序的特性（与每一个位置只比较一次大小）
+            //满足 arr[p1] < arr[p2] （即p1动一次），算一次逆序
+            res += arr[p1] < arr[p2] ? (r - p2 + 1) * arr[p1] : 0;
             help[i++] = arr[p1] < arr[p2] ? arr[p1++] : arr[p2++];
         }
         while (p1 <= m) {

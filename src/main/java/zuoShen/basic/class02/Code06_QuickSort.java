@@ -5,7 +5,7 @@ import java.util.Arrays;
 /**
  * @param
  * @Author 小郭同学
- * @Description todo 快速排序，三区域法
+ * @Description todo 快速排序，三区域法（两边界）
  * @Date 2022/7/10 16:36
  * @return null
  */
